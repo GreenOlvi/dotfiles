@@ -1,0 +1,16 @@
+## only works if the "APM" command is available
+# backtick 1 60 0 APM
+startup_message off
+vbell off
+defscrollback 1000
+# for the hostname in the statusline, updated once per hour...
+backtick 1 3600 0 hostname
+### red block cursor on the linux console
+termcapinfo linux 've=\E[?25h\E[?17;0;64c'
+### add colour to the caption...
+caption string "%{.ck} %n %t %{.gk}"
+# hardstatus string "%{.yk} %2`"
+hardstatus alwayslastline
+#hardstatus string "%{.yk}Host: %1` %{.gk} Load: %l %{.rw} %c:%s %{.bw} %n %t %{.wk} %W %{.wk}"
+hardstatus string "%{.yk}Host: %1` %{.gk} Load: %l %{.rw} %Y-%m-%d %c:%s %{.wk} %-w%{.bw} %n %t %{.wk}%+w %-=%{.wk}"
+
