@@ -1,10 +1,11 @@
 [user]
-	name = Piotr Szulc
-	email = szulo123@gmail.com
+   name = Piotr Szulc
+   email = szulo123@gmail.com
+
 [core]
-	editor = vim --nofork
-	autocrlf = input
-	safecrlf = true
+   editor = vim --nofork
+   autocrlf = input
+   safecrlf = true
 
 [color]
    ui = auto
