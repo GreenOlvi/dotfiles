@@ -1,0 +1,20 @@
+[user]
+	name = Piotr Szulc
+	email = szulo123@gmail.com
+[core]
+	editor = vim --nofork
+	autocrlf = input
+	safecrlf = true
+
+[color]
+   ui = auto
+
+[alias]
+   st = status
+   ci = commit
+   br = branch
+   co = checkout
+   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+   type = cat-file -t
+   dump = cat-file -p
+   todo = grep --heading --break --ignore-case -e 'FIX: *' -e 'TODO: *'
