@@ -11,6 +11,7 @@
    ui = auto
 
 [alias]
+   h = help
    st = status
    ci = commit
    br = branch
