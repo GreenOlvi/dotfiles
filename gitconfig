@@ -3,6 +3,7 @@
    email = szulo123@gmail.com
 
 [core]
+   pager = less -XMRSI
    editor = vim --nofork
    autocrlf = input
    safecrlf = true
