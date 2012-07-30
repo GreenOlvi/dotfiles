@@ -1,35 +1,53 @@
-set backspace=2
-set winheight=999
-set virtualedit=block
-set number
-set ruler
+set nocompatible
+
+call pathogen#infect()
 
 syntax on
+filetype plugin on
+filetype indent on
+
+set backspace=indent,eol,start
+set modeline
+set number
+set ruler
+set smartindent " smart autoindenting when starting a new line
+set virtualedit=block
+set winheight=999
 
 " Tab options
 set tabstop=3
 set shiftwidth=3
 set expandtab
 
+" Stop using arrow keys!
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
 " Easy window switching
 imap <C-w> <C-o><C-w>
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
+map <C-J> <C-W>j<C-w>_
+map <C-K> <C-W>k<C-w>_
+map <C-H> <C-W>h<C-w>_
+map <C-L> <C-W>l<C-w>_
+map <C-_> <C-W>_
 
 map <F6> :set list!<Bar>set list?<CR>
-map <F7> :%s/\s\+$//<CR>
 map <F8> :Tlist<CR>
 map <F9> :set wrap!<Bar>set wrap?<CR>
 map <F10> :set paste!<Bar>set paste?<CR>
 map <F11> :set hls!<Bar>set hls?<CR>
+" Replaced with toggle between three modes
 "map <F12> :set number!<Bar>set number?<CR>
+
+nmap <silent> <leader><CR> i<CR><ESC>
+
+" Y to yank to the end of the line
+nnoremap Y y$
 
 command! W w
 command! Q q
-
-nnoremap Y y$
 
 " Save with sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -43,36 +61,35 @@ else
    nmap <leader>erc :sp $VIM/_gvimrc<CR>
 endif
 
+" Always show status line
+set laststatus=2
+
+set statusline=%{fugitive#statusline()}\ %<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+
 " Perl syntax check with make
 autocmd BufNewFile,BufRead *.p? compiler perl
 
-map <C-P> :Perldoc<cword><CR>
-autocmd BufNewFile,BufRead *.p? setf perl
-autocmd BufNewFile,BufRead *.p? map <C-P> :Perldoc<cword><CR>
-autocmd BufNewFile,BufRead *.p? let g:perldoc_program='/usr/bin/perldoc'
-autocmd BufNewFile,BufRead *.p? source $HOME/.vim/ftplugin/perl_doc.vim
-
 " Perl test files
 autocmd BufNewFile,BufRead *.t setf perl
-autocmd BufNewFile,BufRead *.t map <F5> :!./Build test test-files=% verbose=1<CR>
+autocmd BufNewFile,BufRead *.t map <buffer> <F5> :!./Build test test-files=% verbose=1<CR>
 
 " Toolkit template syntax
 autocmd BufNewFile,BufRead *.tt setf tt2html
 
-set modeline
+" Auto remove trailing whitespaces
+autocmd BufWritePre *.pl,*.pm,*.t,*.tt :%s/\s\+$//e
+
+
  
 "highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 "match OverLength /\%81v.*/
  
-" ?
-"autocmd BufRead mutt-* source $HOME/.vim/modes/mail.vim
-
 " Run perltidy
 fun! Pretty ()
    execute '%!perltidy -q'
 endfun
 
-nmap <silent> <C-f> <Esc> :call Pretty()<CR>
+autocmd BufNewFile,BufRead *.p? nmap <silent> <C-g> <Esc> :call Pretty()<CR>
 
 " Toggle line numbers
 function! NumberToggle()
@@ -88,4 +105,23 @@ function! NumberToggle()
 endfunc
 
 map <F12> :call NumberToggle()<Bar>set number?<CR>
+
+" Shows name of function or subroutine
+function! FindSub()
+   let subpattern = '\(sub\|function\) \w\+'
+   let subline = search(subpattern, 'bnW')
+   if !subline
+      return 'not in sub'
+   else
+      return matchstr(getline(subline), subpattern)
+   endif
+endfunction
+
+" use aesthetic middle of screen for "zz"
+nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E>"<CR>
+
+
+" CtrlP settings
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
