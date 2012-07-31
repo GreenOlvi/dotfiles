@@ -1,16 +1,19 @@
 set nocompatible
 
 call pathogen#infect()
+call pathogen#helptags()
 
 syntax on
 filetype plugin on
 filetype indent on
 
 set backspace=indent,eol,start
+set encoding=utf-8
 set modeline
 set number
 set ruler
 set smartindent " smart autoindenting when starting a new line
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 set virtualedit=block
 set winheight=999
 
@@ -34,6 +37,7 @@ map <C-L> <C-W>l<C-w>_
 map <C-_> <C-W>_
 
 map <F6> :set list!<Bar>set list?<CR>
+map <F7> :GundoToggle<CR>
 map <F8> :Tlist<CR>
 map <F9> :set wrap!<Bar>set wrap?<CR>
 map <F10> :set paste!<Bar>set paste?<CR>
@@ -125,3 +129,5 @@ nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
+" Powerline settings
+let g:Powerline_symbols = 'fancy'
