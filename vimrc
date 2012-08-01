@@ -17,6 +17,9 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 set virtualedit=block
 set winheight=999
 
+" Very Mac-ish ;)
+colorscheme lucius
+
 " Tab options
 set tabstop=3
 set shiftwidth=3
@@ -68,7 +71,8 @@ endif
 " Always show status line
 set laststatus=2
 
-set statusline=%{fugitive#statusline()}\ %<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+" Status line with git status (overriden by Powerline)
+" set statusline=%{fugitive#statusline()}\ %<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 
 " Perl syntax check with make
 autocmd BufNewFile,BufRead *.p? compiler perl
@@ -108,7 +112,7 @@ function! NumberToggle()
    endif
 endfunc
 
-map <F12> :call NumberToggle()<Bar>set number?<CR>
+map <F3> :call NumberToggle()<Bar>set number?<CR>
 
 " Shows name of function or subroutine
 function! FindSub()
