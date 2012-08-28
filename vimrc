@@ -10,10 +10,12 @@ filetype indent on
 set backspace=indent,eol,start
 set encoding=utf-8
 set modeline
+set mouse=a                      " Use mouse
 set number
 set ruler
-set smartindent " smart autoindenting when starting a new line
-set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+set smartindent                  " Smart autoindenting when starting a new line
+set splitbelow                   " Open new split below
+set t_Co=256                     " Explicitly tell vim that the terminal supports 256 colors
 set virtualedit=block
 set winheight=999
 
