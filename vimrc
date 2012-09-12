@@ -52,6 +52,9 @@ map <F11> :set hls!<Bar>set hls?<CR>
 
 nmap <silent> <leader><CR> i<CR><ESC>
 
+" Disable annoying switching to ex mode
+nnoremap Q <nop>
+
 " Easy begin and end of line
 nnoremap H 0
 nnoremap L $
