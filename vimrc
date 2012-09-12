@@ -52,6 +52,10 @@ map <F11> :set hls!<Bar>set hls?<CR>
 
 nmap <silent> <leader><CR> i<CR><ESC>
 
+" Easy begin and end of line
+nnoremap H 0
+nnoremap L $
+
 " Y to yank to the end of the line
 nnoremap Y y$
 
