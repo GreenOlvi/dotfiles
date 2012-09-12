@@ -61,13 +61,20 @@ command! Q q
 " Save with sudo
 cmap w!! %!sudo tee > /dev/null %
 
-" Easy .vimrc edit and source
 if has("unix")
+   " Easy .vimrc edit and source
    nmap <leader>src :source $HOME/.vimrc<CR>
    nmap <leader>erc :sp $HOME/.vimrc<CR>
-else
+
+   " Simple session handling
+   nmap <leader>ss :wa<CR>:mksession! $HOME/.vim/sessions/
+   nmap <leader>so :wa<CR>:so $HOME/.vim/sessions/
+else  " Windows version
    nmap <leader>src :source $VIM/_gvimrc<CR>
    nmap <leader>erc :sp $VIM/_gvimrc<CR>
+
+   nmap <leader>ss :wa<CR>:mksession! $VIM/sessions/
+   nmap <leader>so :wa<CR>:so $VIM/sessions/
 endif
 
 " Always show status line
@@ -137,3 +144,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 " Powerline settings
 let g:Powerline_symbols = 'fancy'
+
+" Vim Pipe settings
+autocmd BufNewFile,BufRead *.t let b:vimpipe_command="/home/piotr/dev/GraphViz-Parser/Build test --test-files=% --verbose 2>&1"
+autocmd BufNewFile,BufRead *.t let b:vimpipe_filetype="tap"
+
