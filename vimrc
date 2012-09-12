@@ -146,6 +146,6 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 let g:Powerline_symbols = 'fancy'
 
 " Vim Pipe settings
-autocmd BufNewFile,BufRead *.t let b:vimpipe_command="/home/piotr/dev/GraphViz-Parser/Build test --test-files=% --verbose 2>&1"
+autocmd BufNewFile,BufRead *.t let b:vimpipe_command="./Build test --test-files=% --verbose 2>&1"
 autocmd BufNewFile,BufRead *.t let b:vimpipe_filetype="tap"
 
