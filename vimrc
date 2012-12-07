@@ -7,6 +7,8 @@ syntax on
 filetype plugin on
 filetype indent on
 
+let mapleader=","
+
 set backspace=indent,eol,start
 set encoding=utf-8
 set modeline
@@ -25,6 +27,7 @@ colorscheme lucius
 " Tab options
 set tabstop=3
 set shiftwidth=3
+set softtabstop=3
 set expandtab
 
 " Stop using arrow keys!
@@ -47,9 +50,8 @@ map <F8> :Tlist<CR>
 map <F9> :set wrap!<Bar>set wrap?<CR>
 map <F10> :set paste!<Bar>set paste?<CR>
 map <F11> :set hls!<Bar>set hls?<CR>
-" Replaced with toggle between three modes
-"map <F12> :set number!<Bar>set number?<CR>
 
+" Quick divide line
 nmap <silent> <leader><CR> i<CR><ESC>
 
 " Disable annoying switching to ex mode
@@ -100,11 +102,12 @@ autocmd BufNewFile,BufRead *.t map <buffer> <F5> :!./Build test test-files=% ver
 " Toolkit template syntax
 autocmd BufNewFile,BufRead *.tt setf tt2html
 
+" Embedded perl templates syntax
+autocmd BufNewFile,BufRead *.ep setf html
+
 " Auto remove trailing whitespaces
-autocmd BufWritePre *.pl,*.pm,*.t,*.tt :%s/\s\+$//e
+autocmd BufWritePre *.pl,*.pm,*.t,*.tt,*.ep :%s/\s\+$//e
 
-
- 
 "highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 "match OverLength /\%81v.*/
  
@@ -147,7 +150,10 @@ nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E
 
 " CtrlP settings
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = {
+   \ 'dir':  '\v[\/](\.(git|hg|svn))|(blib)$',
+   \ 'file': '\v\.sw[a-z]$',
+   \ }
 
 " Powerline settings
 let g:Powerline_symbols = 'fancy'
