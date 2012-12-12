@@ -70,18 +70,15 @@ command! Q q
 " Save with sudo
 cmap w!! %!sudo tee > /dev/null %
 
-if has("unix")
-   " Easy .vimrc edit and source
-   nmap <leader>src :source $HOME/.vimrc<CR>
-   nmap <leader>erc :sp $HOME/.vimrc<CR>
+" Easy .vimrc edit and source
+nmap <leader>erc :sp $MYVIMRC<CR>
+nmap <leader>src :source $MYVIMRC<CR>
 
+if has("unix")
    " Simple session handling
    nmap <leader>ss :wa<CR>:mksession! $HOME/.vim/sessions/
    nmap <leader>so :wa<CR>:so $HOME/.vim/sessions/
 else  " Windows version
-   nmap <leader>src :source $VIM/_gvimrc<CR>
-   nmap <leader>erc :sp $VIM/_gvimrc<CR>
-
    nmap <leader>ss :wa<CR>:mksession! $VIM/sessions/
    nmap <leader>so :wa<CR>:so $VIM/sessions/
 endif
@@ -95,7 +92,7 @@ set laststatus=2
 " Perl syntax check with make
 autocmd BufNewFile,BufRead *.p? compiler perl
 
-" Perl test files
+" Perl test files (assumes vim is running from project root)
 autocmd BufNewFile,BufRead *.t setf perl
 autocmd BufNewFile,BufRead *.t map <buffer> <F5> :!./Build test test-files=% verbose=1<CR>
 
