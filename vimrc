@@ -11,8 +11,8 @@ let mapleader=","
 
 set backspace=indent,eol,start
 set encoding=utf-8
+set incsearch                    " Highlight search while typing
 set modeline
-set mouse=a                      " Use mouse
 set number
 set ruler
 set smartindent                  " Smart autoindenting when starting a new line
@@ -21,8 +21,20 @@ set t_Co=256                     " Explicitly tell vim that the terminal support
 set virtualedit=block
 set winheight=999
 
+" Disable swapfiles and backup
+set nobackup
+set noswapfile
+
+" Tab-completion in command line mode
+set wildmode=list:longest
+
 " Very Mac-ish ;)
 colorscheme lucius
+
+" Use mouse
+if has('mouse')
+   set mouse=a
+endif
 
 " Tab options
 set tabstop=3
