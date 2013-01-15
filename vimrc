@@ -11,6 +11,7 @@ let mapleader=","
 
 set backspace=indent,eol,start
 set encoding=utf-8
+set foldcolumn=3
 set incsearch                    " Highlight search while typing
 set modeline
 set number
