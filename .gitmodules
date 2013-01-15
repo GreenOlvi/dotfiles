@@ -14,3 +14,7 @@
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
    ignore = dirty
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+   ignore = dirty
