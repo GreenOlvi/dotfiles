@@ -29,6 +29,7 @@ set noswapfile
 set wildmode=list:longest
 
 " Very Mac-ish ;)
+let g:lucius_style = 'dark'
 colorscheme lucius
 
 " Use mouse
