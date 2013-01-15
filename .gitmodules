@@ -18,3 +18,7 @@
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
    ignore = dirty
+[submodule "vim/bundle/vim-signature"]
+	path = vim/bundle/vim-signature
+	url = git://github.com/kshenoy/vim-signature.git
+   ignore = dirty
