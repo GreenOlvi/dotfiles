@@ -26,3 +26,7 @@
 	path = vim/bundle/vim-pipe
 	url = git://github.com/vim-scripts/vim-pipe.git
    ignore = dirty
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+   ignore = dirty
