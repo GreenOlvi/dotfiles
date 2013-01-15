@@ -81,6 +81,10 @@ nnoremap Y y$
 command! W w
 command! Q q
 
+" Leave selection after indenting in visual
+vnoremap < <gv
+vnoremap > >gv
+
 " Save with sudo
 cmap w!! %!sudo tee > /dev/null %
 
