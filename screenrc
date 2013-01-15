@@ -14,3 +14,7 @@ hardstatus alwayslastline
 #hardstatus string "%{.yk}Host: %1` %{.gk} Load: %l %{.rw} %c:%s %{.bw} %n %t %{.wk} %W %{.wk}"
 hardstatus string "%{.yk}Host: %1` %{.gk} Load: %l %{.rw} %Y-%m-%d %c:%s %{.wk} %-w%{.bw} %n %t %{.wk}%+w %-=%{.wk}"
 
+# Tells screen to interpret 256 colors
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
