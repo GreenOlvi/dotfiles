@@ -22,3 +22,7 @@
 	path = vim/bundle/vim-signature
 	url = git://github.com/kshenoy/vim-signature.git
    ignore = dirty
+[submodule "vim/bundle/vim-pipe"]
+	path = vim/bundle/vim-pipe
+	url = git://github.com/vim-scripts/vim-pipe.git
+   ignore = dirty
