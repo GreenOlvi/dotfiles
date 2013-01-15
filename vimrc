@@ -104,6 +104,8 @@ endif
 " Always show status line
 set laststatus=2
 
+let perl_fold=1
+
 " Status line with git status (overriden by Powerline)
 " set statusline=%{fugitive#statusline()}\ %<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 
