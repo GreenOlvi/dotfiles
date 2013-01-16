@@ -14,10 +14,6 @@
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
    ignore = dirty
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-   ignore = dirty
 [submodule "vim/bundle/vim-signature"]
 	path = vim/bundle/vim-signature
 	url = git://github.com/kshenoy/vim-signature.git
@@ -29,4 +25,8 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
+   ignore = dirty
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git://github.com/Lokaltog/powerline.git
    ignore = dirty
