@@ -13,6 +13,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set foldcolumn=3
 set incsearch                    " Highlight search while typing
+set linebreak
 set modeline
 set number
 set ruler
@@ -20,7 +21,7 @@ set smartindent                  " Smart autoindenting when starting a new line
 set splitbelow                   " Open new split below
 set t_Co=256                     " Explicitly tell vim that the terminal supports 256 colors
 set virtualedit=block
-set winheight=999
+" set winheight=999
 
 " Disable swapfiles and backup
 set nobackup
@@ -99,6 +100,11 @@ if has("unix")
 else  " Windows version
    nmap <leader>ss :wa<CR>:mksession! $VIM/sessions/
    nmap <leader>so :wa<CR>:so $VIM/sessions/
+endif
+
+if has("gui")
+   set guioptions=aegimrLt
+   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
 
 " Always show status line
