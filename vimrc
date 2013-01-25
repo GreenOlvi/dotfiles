@@ -36,7 +36,6 @@ set noswapfile
 " Tab-completion in command line mode
 set wildmode=list:longest
 
-" Very Mac-ish ;)
 let g:lucius_style = 'dark'
 colorscheme lucius
 
@@ -106,11 +105,6 @@ if has("unix")
 else  " Windows version
    nmap <leader>ss :wa<CR>:mksession! $VIM/sessions/
    nmap <leader>so :wa<CR>:so $VIM/sessions/
-endif
-
-if has("gui")
-   set guioptions=aegimrLt
-   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
 
 " Always show status line
