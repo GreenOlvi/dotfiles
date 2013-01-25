@@ -34,3 +34,7 @@
 	path = vim/bundle/jellybeans.vim
 	url = git://github.com/nanotech/jellybeans.vim.git
    ignore = dirty
+[submodule "vim/bundle/html_annoyance"]
+	path = vim/bundle/html_annoyance
+	url = git://github.com/vim-scripts/html_annoyance.git
+   ignore = dirty
