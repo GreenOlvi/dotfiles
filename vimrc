@@ -1,5 +1,11 @@
 set nocompatible
 
+let g:pathogen_disabled = []
+
+if !has('unix')
+   call add(g:pathogen_disabled, 'tagbar') " Windows usually don't have ctags
+endif
+
 call pathogen#infect()
 call pathogen#helptags()
 
