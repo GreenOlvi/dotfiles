@@ -1,4 +1,12 @@
-set guioptions=aegimrLt
+set guioptions=a  " Set autoselect
+set guioptions+=c " Use console dialogs instead of popup dialogs
+set guioptions+=e " Add tab pages
+set guioptions+=i " Use a Vim icon
+set guioptions+=m " Show menu bar
+set guioptions+=g " Grey out inactive menu items
+set guioptions+=r " Always show right scrollbar
+set guioptions+=t " Include tearoff menu items
+
 if has('unix')
    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
