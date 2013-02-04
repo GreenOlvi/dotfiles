@@ -38,3 +38,7 @@
 	path = vim/bundle/html_annoyance
 	url = git://github.com/vim-scripts/html_annoyance.git
    ignore = dirty
+[submodule "vim/bundle/vimwiki"]
+	path = vim/bundle/vimwiki
+	url = git://github.com/vim-scripts/vimwiki.git
+   ignore = dirty
