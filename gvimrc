@@ -1,5 +1,7 @@
 set guioptions=aegimrLt
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+if has('unix')
+   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+endif
 
 set lines=42
 set columns=130
