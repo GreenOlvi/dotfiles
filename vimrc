@@ -1,9 +1,12 @@
 set nocompatible
 
+set langmenu=en_US.UTF-8
+let $LANG='en_US'
+
 let g:pathogen_disabled = []
 
 if !has('unix')
-   call add(g:pathogen_disabled, 'tagbar') " Windows usually don't have ctags
+   call add(g:pathogen_disabled, 'taglist') " Windows usually don't have ctags
 endif
 
 call pathogen#infect()
