@@ -9,6 +9,9 @@ set guioptions+=t " Include tearoff menu items
 
 if has('unix')
    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+else
+   set guifont=Droid_Sans_Mono_for_Powerline:h10:cEASTEUROPE
+   " set guifont=Lucida_Console:h10:cEASTEUROPE
 endif
 
 set lines=42
