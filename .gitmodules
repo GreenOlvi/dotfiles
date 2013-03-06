@@ -46,3 +46,7 @@
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
    ignore = dirty
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+   ignore = dirty
