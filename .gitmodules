@@ -50,3 +50,7 @@
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
    ignore = dirty
+[submodule "vim/bundle/vim-visual-star-search"]
+	path = vim/bundle/vim-visual-star-search
+	url = git://github.com/nelstrom/vim-visual-star-search.git
+   ignore = dirty
