@@ -7,3 +7,5 @@ alias mv='mv -v'
 alias rm='rm -v'
 
 alias cd..='cd ..'
+
+alias vi='vim'

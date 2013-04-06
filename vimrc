@@ -95,7 +95,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Save with sudo
-cmap w!! %!sudo tee > /dev/null %
+cmap w!! w !sudo tee % > /dev/null
 
 " Easy .vimrc edit and source
 nmap <leader>erc :sp $MYVIMRC<CR>
