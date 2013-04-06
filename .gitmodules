@@ -54,3 +54,7 @@
 	path = vim/bundle/vim-visual-star-search
 	url = git://github.com/nelstrom/vim-visual-star-search.git
    ignore = dirty
+[submodule "vim/bundle/vim-unimpaired"]
+	path = vim/bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+   ignore = dirty
