@@ -2,41 +2,41 @@
 
 My repository for useful config files
 
-# How to install
+## How to install
 
-   git clone git://github.com/greenolvi/dotfiles.git
-   cd dotfiles
-   git submodule init
-   git submodule update
+      git clone git://github.com/greenolvi/dotfiles.git
+      cd dotfiles
+      git submodule init
+      git submodule update
 
-Now you need to create symbolic links in your [$HOME]
+Now you need to create symbolic links in your `$HOME`
 
-## Bash aliases
+### Bash aliases
 
-   ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+      ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
    
-Many [.bashrc] files have included sourcing of separate aliases file. If not then you need to add this line to your [.bashrc] file:
+Many `.bashrc` files have included sourcing of separate aliases file. If not then you need to add this line to your `.bashrc`:
 
-   . ~/.bash_aliases
+      . ~/.bash_aliases
 
-## Git
+### Git
 
-   ln -s ~/dotfiles/gitconfig ~/.gitconfig
+      ln -s ~/dotfiles/gitconfig ~/.gitconfig
    
-## GNU Screen
+### GNU Screen
 
-   ln -s ~/dotfiles/screenrc ~/.screenrc
+      ln -s ~/dotfiles/screenrc ~/.screenrc
 
-## MySql client
+### MySql client
 
-   ln -s ~/dotfiles/my.cnf ~/.my.cnf
+      ln -s ~/dotfiles/my.cnf ~/.my.cnf
    
-## perltidy
+### perltidy
 
-   ln -s ~/dotfiles/perltidy ~/.perltidy
+      ln -s ~/dotfiles/perltidy ~/.perltidy
 
-## VIM
+### VIM
 
-   ln -s ~/dotfiles/vim ~/.vim
-   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-   ln -s ~/dotfiles/vim/gvimrc ~/.gvimrc
+      ln -s ~/dotfiles/vim ~/.vim
+      ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+      ln -s ~/dotfiles/vim/gvimrc ~/.gvimrc
