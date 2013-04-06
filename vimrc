@@ -101,6 +101,8 @@ cmap w!! %!sudo tee > /dev/null %
 nmap <leader>erc :sp $MYVIMRC<CR>
 nmap <leader>src :source $MYVIMRC<CR>
 
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 if has("unix")
    " Simple session handling
    nmap <leader>ss :wa<CR>:mksession! $HOME/.vim/sessions/
