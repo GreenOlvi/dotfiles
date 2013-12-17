@@ -42,3 +42,6 @@
 [diff]
    renames = copy
    algorithm = patience
+
+[push]
+   default = current

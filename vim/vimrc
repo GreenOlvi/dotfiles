@@ -1,20 +1,57 @@
 set nocompatible
+filetype off
 
-set langmenu=en_US.UTF-8
-let $LANG='en_US'
-
-let g:pathogen_disabled = []
-
-if !has('unix')
-   call add(g:pathogen_disabled, 'taglist') " Windows usually don't have ctags
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
 endif
 
-call pathogen#infect()
-call pathogen#helptags()
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Used bundles
+Bundle 'airblade/vim-gitgutter'
+Bundle 'bling/vim-airline'
+Bundle 'dockyard/vim-easydir'
+Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kshenoy/vim-signature'
+Bundle 'nelstrom/vim-visual-star-search'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+
+Bundle 'html_annoyance'
+Bundle 'taglist.vim'
+Bundle 'vim-pipe'
+Bundle 'vimwiki'
+
+" Color schemes
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'w0ng/vim-hybrid.git'
+
+"Add your bundles here
+if iCanHazVundle == 0
+   echo "Installing Bundles, please ignore key map error messages"
+   echo ""
+  :BundleInstall
+endif
+
 
 syntax on
 filetype plugin on
 filetype indent on
+
+set langmenu=en_US.UTF-8
+let $LANG='en_US'
 
 let mapleader=","
 
@@ -38,9 +75,6 @@ set noswapfile
 
 " Tab-completion in command line mode
 set wildmode=list:longest
-
-let g:lucius_style = 'dark'
-colorscheme lucius
 
 " Use mouse
 if has('mouse')
@@ -115,17 +149,18 @@ endif
 " Always show status line
 set laststatus=2
 
-let perl_fold=1
-
-" Status line with git status (overriden by Powerline)
-" set statusline=%{fugitive#statusline()}\ %<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+" Perl options
+let perl_fold = 1
+let perl_fold_anonymous_subs = 1
+let perl_nofold_packages = 1
+let perl_include_pod = 1
 
 " Perl syntax check with make
 autocmd BufNewFile,BufRead *.p? compiler perl
 
 " Perl test files (assumes vim is running from project root)
 autocmd BufNewFile,BufRead *.t setf perl
-autocmd BufNewFile,BufRead *.t map <buffer> <F5> :!./Build test test-files=% verbose=1<CR>
+autocmd BufNewFile,BufRead *.t map <buffer> <F5> :!prove -It -l %<CR>
 
 " Toolkit template syntax
 autocmd BufNewFile,BufRead *.tt setf tt2html
@@ -138,7 +173,7 @@ autocmd BufWritePre *.pl,*.pm,*.t,*.tt,*.ep :%s/\s\+$//e
 
 "highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 "match OverLength /\%81v.*/
- 
+
 " Run perltidy
 fun! Pretty ()
    execute '%!perltidy -q'
@@ -175,6 +210,12 @@ endfunction
 " use aesthetic middle of screen for "zz"
 nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E>"<CR>
 
+" Lucius colorscheme
+" let g:lucius_style = 'dark'
+" colorscheme lucius
+
+" Hybrid colorscheme
+colorscheme hybrid
 
 " CtrlP settings
 let g:ctrlp_working_path_mode = 2
@@ -189,4 +230,8 @@ let g:Powerline_symbols = 'fancy'
 " Vim Pipe settings
 autocmd BufNewFile,BufRead *.t let b:vimpipe_command="./Build test --test-files=% --verbose 2>&1"
 autocmd BufNewFile,BufRead *.t let b:vimpipe_filetype="tap"
+
+" Vim airline
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
 
