@@ -9,3 +9,6 @@ alias rm='rm -v'
 alias cd..='cd ..'
 
 alias vi='vim'
+alias view='vim -R'
+alias :e='vim'
+alias :q='echo "You'"'"'re not in VIM dummy!"'
