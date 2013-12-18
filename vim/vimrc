@@ -171,8 +171,8 @@ autocmd BufNewFile,BufRead *.ep setf html
 " Auto remove trailing whitespaces
 autocmd BufWritePre *.pl,*.pm,*.t,*.tt,*.ep :%s/\s\+$//e
 
-"highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-"match OverLength /\%81v.*/
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%81v/
 
 " Run perltidy
 fun! Pretty ()
@@ -196,23 +196,8 @@ endfunc
 
 map <F3> :call NumberToggle()<Bar>set number?<CR>
 
-" Shows name of function or subroutine
-function! FindSub()
-   let subpattern = '\(sub\|function\) \w\+'
-   let subline = search(subpattern, 'bnW')
-   if !subline
-      return 'not in sub'
-   else
-      return matchstr(getline(subline), subpattern)
-   endif
-endfunction
-
 " use aesthetic middle of screen for "zz"
 nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E>"<CR>
-
-" Lucius colorscheme
-" let g:lucius_style = 'dark'
-" colorscheme lucius
 
 " Hybrid colorscheme
 colorscheme hybrid
@@ -223,9 +208,6 @@ let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.(git|hg|svn))|(blib)$',
    \ 'file': '\v\.sw[a-z]$',
    \ }
-
-" Powerline settings
-let g:Powerline_symbols = 'fancy'
 
 " Vim Pipe settings
 autocmd BufNewFile,BufRead *.t let b:vimpipe_command="./Build test --test-files=% --verbose 2>&1"

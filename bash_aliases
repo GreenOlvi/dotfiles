@@ -12,3 +12,5 @@ alias vi='vim'
 alias view='vim -R'
 alias :e='vim'
 alias :q='echo "You'"'"'re not in VIM dummy!"'
+
+alias tmux='tmux -2'
