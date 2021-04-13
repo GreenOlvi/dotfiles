@@ -8,7 +8,8 @@ FILES=".vim
 .gvimrc
 .bash_aliases
 .gitconfig
-.screenrc"
+.screenrc
+.tmux.conf"
 
 mkdir -p "$curr/bak"
 
@@ -29,4 +30,4 @@ ln -s "$curr/vim/gvimrc"   "$home/.gvimrc"
 ln -s "$curr/bash_aliases" "$home/.bash_aliases"
 ln -s "$curr/gitconfig"    "$home/.gitconfig"
 ln -s "$curr/screenrc"     "$home/.screenrc"
-ln -s "$curr/tmux.config"  "$home/.tmux.config"
+ln -s "$curr/tmux.conf"    "$home/.tmux.conf"
