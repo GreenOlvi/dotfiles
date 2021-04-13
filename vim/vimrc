@@ -29,7 +29,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 
 Bundle 'html_annoyance'
-Bundle 'taglist.vim'
+" Bundle 'taglist.vim'
 Bundle 'vim-pipe'
 Bundle 'vimwiki'
 
@@ -201,6 +201,7 @@ nnoremap <silent> zz :exec "normal! zz" . float2nr(winheight(0)*0.1) . "\<Lt>C-E
 
 " Hybrid colorscheme
 colorscheme hybrid
+set background=dark
 
 " CtrlP settings
 let g:ctrlp_working_path_mode = 2
@@ -215,5 +216,5 @@ autocmd BufNewFile,BufRead *.t let b:vimpipe_filetype="tap"
 
 " Vim airline
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
