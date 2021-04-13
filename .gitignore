@@ -1,3 +1,4 @@
 *.sw[a-z]
+bak/
 vim/.netrwhist
 vim/bundle/**

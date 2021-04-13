@@ -14,3 +14,5 @@ alias :e='vim'
 alias :q='echo "You'"'"'re not in VIM dummy!"'
 
 alias tmux='tmux -2'
+
+alias o='explorer.exe'
