@@ -7,6 +7,10 @@ opt.number = true
 
 opt.syntax = "on"
 
+-- disable swap file and backup
+opt.swapfile = false
+opt.backup = false
+
 -- tabs & indentation
 opt.tabstop = 4 -- 4 spaces for tabs
 opt.shiftwidth = 4 -- 4 spaces for indent width
@@ -36,3 +40,21 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true
 opt.splitbelow = true
 
+-- undofile
+if vim.fn.has("unix") == 0 then
+    opt.undodir = os.getenv("USERPROFILE") .. "\\vimfiles\\undodir"
+else
+    opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+end
+
+opt.undofile = true
+
+-- search
+opt.hlsearch = false
+opt.incsearch = true
+
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.colorcolumn = "160"
+
+opt.listchars = { space = "•", tab = ">~", trail = "-", nbsp = "%" }
