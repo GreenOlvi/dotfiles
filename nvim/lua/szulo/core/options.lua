@@ -27,7 +27,7 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- backspace
-opt.backspace = "indent,start"
+opt.backspace = "indent,start,eol"
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register

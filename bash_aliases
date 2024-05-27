@@ -8,9 +8,10 @@ alias rm='rm -v'
 
 alias cd..='cd ..'
 
-alias vi='vim'
-alias view='vim -R'
-alias :e='vim'
+alias vi='nvim'
+alias vim='nvim'
+alias view='nvim -R'
+alias :e='nvim'
 alias :q='echo "You'"'"'re not in VIM dummy!"'
 
 alias tmux='tmux -2'
