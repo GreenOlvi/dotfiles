@@ -1,2 +1,2 @@
-require("szulo")
-
+require("szulo.core")
+require("szulo.lazy")

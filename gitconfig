@@ -1,47 +1,63 @@
 [user]
-   name = Piotr Szulc
-   email = szulo123@gmail.com
+  name = Piotr Szulc
+  email = szulo123@gmail.com
 
 [core]
-   pager = less -XMRSI
-   editor = vim --nofork
-   autocrlf = input
+   # pager = less -XMRSI
+  pager = delta
+  editor = nvim
+  autocrlf = input
 
 [color]
-   ui = auto
+  ui = auto
 
 [color "status"]
-   added = green
-   changed = yellow
-   untracked = red
+  added = green
+  changed = yellow
+  untracked = red
 
 [grep]
-   lineNumber = true
-   patternType = perl
+  lineNumber = true
+  patternType = perl
 
 [alias]
-   h = help
-   d = diff --patience
-   st = status -bs
-   ci = commit
-   br = branch
-   co = checkout
-   cp = cherry-pick
-   hist = log --graph --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %C(green)%an%Creset%C(magenta)%d%Creset %s\" --date=short
-   type = cat-file -t
-   dump = cat-file -p
-   last = log -1 -p
-   todo = grep -n -E "'#+ *TODO'"
-   root = rev-parse --show-toplevel
-   ctags = !.git/hooks/ctags
-   reset1 = reset HEAD^
+  h = help
+  d = diff --patience
+  st = status -bs
+  ci = commit
+  br = branch
+  co = checkout
+  cp = cherry-pick
+  hist = log --graph --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %C(green)%an%Creset%C(magenta)%d%Creset %s\" --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  last = log -1 -p
+  todo = grep -n -E "'#+ *TODO'"
+  root = rev-parse --show-toplevel
+  ctags = !.git/hooks/ctags
+  reset1 = reset HEAD^
 
-   ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-   theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+  ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
 [diff]
-   renames = copy
-   algorithm = patience
+  renames = copy
+  algorithm = patience
+  colorMoved = default
 
 [push]
-   default = current
+  default = current
+
+[commit]
+  gpgsign = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  dark = true
+  # side-by-side = true
+
+[merge]
+  conflictstyle = diff3
