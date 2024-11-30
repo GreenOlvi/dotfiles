@@ -1,6 +1,7 @@
 [user]
   name = Piotr Szulc
   email = szulo123@gmail.com
+  signingkey = 4ABDF99C6A42A142
 
 [core]
    # pager = less -XMRSI
