@@ -36,3 +36,6 @@ keymap.set("v", ">", ">gv")
 keymap.set("n", "<leader>w", ":set wrap!<CR>", { desc = "Toggle word wrap" })
 keymap.set("n", "<leader>h", ":set hls!<CR>", { desc = "Toggle search highlights" })
 keymap.set("n", "<leader>l", ":set list!<CR>", { desc = "Toggle invisible chars" })
+
+-- go back
+keymap.set("n", "gB", ":b#<CR>", { desc = "Go to previous buffer" })

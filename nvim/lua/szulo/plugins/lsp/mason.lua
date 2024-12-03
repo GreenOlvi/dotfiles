@@ -31,11 +31,11 @@ return {
                 "cssls",
                 "lua_ls",
                 "pyright",
+                "eslint",
                 "omnisharp",
                 "clangd",
                 "dockerls",
                 "jsonls",
-                "terraformls",
             },
         })
 
@@ -46,7 +46,6 @@ return {
                 "isort", -- python formatter
                 "black", -- python formatter
                 "cpplint",
-                "eslint_d",
             },
         })
     end,
