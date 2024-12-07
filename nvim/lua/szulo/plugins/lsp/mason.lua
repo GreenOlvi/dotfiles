@@ -46,6 +46,8 @@ return {
                 "isort", -- python formatter
                 "black", -- python formatter
                 "cpplint",
+                "omnisharp",
+                "netcoredbg",
             },
         })
     end,

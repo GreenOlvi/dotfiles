@@ -39,3 +39,7 @@ keymap.set("n", "<leader>l", ":set list!<CR>", { desc = "Toggle invisible chars"
 
 -- go back
 keymap.set("n", "gB", ":b#<CR>", { desc = "Go to previous buffer" })
+
+-- comment
+keymap.set("n", "<C-/>", "gcc", { desc = "Comment line" })
+keymap.set("v", "<C-/>", "gc", { desc = "Comment block" })
