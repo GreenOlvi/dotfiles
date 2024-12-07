@@ -40,19 +40,6 @@ return {
             ui.eval(nil, { enter = true })
         end)
 
-        -- dap.listeners.before.attach.dapui_config = function()
-        --     ui.open()
-        -- end
-        -- dap.listeners.before.launch.dapui_config = function()
-        --     ui.open()
-        -- end
-        -- dap.listeners.before.event_terminated.dapui_config = function()
-        --     ui.close()
-        -- end
-        -- dap.listeners.before.event_exited.dapui_config = function()
-        --     ui.close()
-        -- end
-
         ui.setup({
             icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
             mappings = {
