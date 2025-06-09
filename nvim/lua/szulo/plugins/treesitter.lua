@@ -37,11 +37,18 @@ return {
                 "vim",
                 "dockerfile",
                 "gitignore",
+                "git_config",
                 "query",
                 "vimdoc",
                 "c",
                 "cpp",
+                "c_sharp",
+                "terraform",
             },
+            sync_install = false,
+            auto_install = true,
+            ignore_install = {},
+            modules = {},
             incremental_selection = {
                 enable = true,
                 keymaps = {

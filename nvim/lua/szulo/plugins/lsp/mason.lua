@@ -3,15 +3,11 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
         -- import mason
         local mason = require("mason")
-
-        -- import mason-lspconfig
-        local mason_lspconfig = require("mason-lspconfig")
-
-        local mason_tool_installer = require("mason-tool-installer")
 
         -- enable mason and configure icons
         mason.setup({
@@ -22,6 +18,25 @@ return {
                     package_uninstalled = "✗",
                 },
             },
+        })
+
+        -- import cmp-nvim-lsp plugin
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+        -- used to enable autocompletion (assign to every lsp server config)
+        local capabilities = cmp_nvim_lsp.default_capabilities()
+
+        local mason_lspconfig = require("mason-lspconfig")
+
+        mason_lspconfig.setup({
+            -- default handler for installed servers
+            function(server_name)
+                local lspconfig = require("lspconfig")
+                vim.lsp.config(server_name, { capabilities = capabilities })
+                lspconfig[server_name].setup({
+                    capabilities = capabilities,
+                })
+            end,
         })
 
         mason_lspconfig.setup({
@@ -39,6 +54,8 @@ return {
             },
         })
 
+        local mason_tool_installer = require("mason-tool-installer")
+
         mason_tool_installer.setup({
             ensure_installed = {
                 "prettier", -- prettier formatter
@@ -46,7 +63,6 @@ return {
                 "isort", -- python formatter
                 "black", -- python formatter
                 "cpplint",
-                "omnisharp",
                 "netcoredbg",
             },
         })

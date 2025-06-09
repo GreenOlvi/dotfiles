@@ -5,13 +5,12 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
         { "folke/neodev.nvim", opts = {} },
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
     },
     config = function()
         -- import lspconfig plugin
         local lspconfig = require("lspconfig")
-
-        -- import mason_lspconfig plugin
-        local mason_lspconfig = require("mason-lspconfig")
 
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -78,35 +77,11 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            ["lua_ls"] = function()
-                -- configure lua server (with special settings)
-                lspconfig["lua_ls"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            -- make the language server recognize "vim" global
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = {
-                                callSnippet = "Replace",
-                            },
-                        },
-                    },
-                })
-            end,
-        })
-
         lspconfig["omnisharp"].setup({
             capabilities = capabilities,
-            cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+            -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+            -- cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
+            cmd = { "omnisharp" },
             enable_import_completion = true,
             organize_imports_on_format = true,
             enable_roslyn_analyzers = true,
@@ -123,6 +98,30 @@ return {
                 },
                 Sdk = {
                     IncludePrereleases = true,
+                },
+            },
+        })
+
+        vim.lsp.enable("lua_ls")
+        vim.lsp.config("lua_ls", {
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    -- make the language server recognize "vim" global
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                    workspace = {
+                        -- Make the server aware of Neovim runtime files
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {
+                        enable = false,
+                    },
                 },
             },
         })

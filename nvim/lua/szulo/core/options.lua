@@ -58,3 +58,6 @@ opt.signcolumn = "yes"
 opt.colorcolumn = "160"
 
 opt.listchars = { space = "•", tab = ">~", trail = "-", nbsp = "%" }
+
+-- session options
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
