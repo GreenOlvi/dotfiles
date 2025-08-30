@@ -77,30 +77,30 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        lspconfig["omnisharp"].setup({
-            capabilities = capabilities,
-            -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-            -- cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
-            cmd = { "omnisharp" },
-            enable_import_completion = true,
-            organize_imports_on_format = true,
-            enable_roslyn_analyzers = true,
-            root_dir = function()
-                return vim.loop.cwd() -- current working directory
-            end,
-            settings = {
-                FormattingOptions = {
-                    EnableEditorConfigSupport = true,
-                },
-                RoslynExtensionsOptions = {
-                    EnableAnalyzersSupport = true,
-                    EnableImportCompletion = true,
-                },
-                Sdk = {
-                    IncludePrereleases = true,
-                },
-            },
-        })
+        -- lspconfig["omnisharp"].setup({
+        --     capabilities = capabilities,
+        --     -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+        --     -- cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
+        --     cmd = { "omnisharp" },
+        --     enable_import_completion = true,
+        --     organize_imports_on_format = true,
+        --     enable_roslyn_analyzers = true,
+        --     root_dir = function()
+        --         return vim.loop.cwd() -- current working directory
+        --     end,
+        --     settings = {
+        --         FormattingOptions = {
+        --             EnableEditorConfigSupport = true,
+        --         },
+        --         RoslynExtensionsOptions = {
+        --             EnableAnalyzersSupport = true,
+        --             EnableImportCompletion = true,
+        --         },
+        --         Sdk = {
+        --             IncludePrereleases = true,
+        --         },
+        --     },
+        -- })
 
         vim.lsp.enable("lua_ls")
         vim.lsp.config("lua_ls", {
