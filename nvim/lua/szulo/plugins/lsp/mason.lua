@@ -18,6 +18,10 @@ return {
                     package_uninstalled = "✗",
                 },
             },
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
+            },
         })
 
         -- import cmp-nvim-lsp plugin
@@ -47,7 +51,7 @@ return {
                 "lua_ls",
                 "pyright",
                 "eslint",
-                "omnisharp",
+                -- "omnisharp",
                 "clangd",
                 "dockerls",
                 "jsonls",
